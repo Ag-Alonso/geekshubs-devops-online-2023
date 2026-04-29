@@ -1,6 +1,6 @@
 services:
   app:
-    build: .
+    image: localhost:5000/acme-inc-app
     stdin_open: true
     tty: true
     volumes:
