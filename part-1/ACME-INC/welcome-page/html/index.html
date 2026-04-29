@@ -5,15 +5,59 @@
     <title>Acme Inc.</title>
     <style>
         html {
-            background-image: url("https://pbs.twimg.com/profile_images/549658285926645760/jhnaJlM3.png"); no-repeat center center fixed;
+            background-image: url("https://pbs.twimg.com/profile_images/549658285926645760/jhnaJlM3.png");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
         }
+        body {
+            font-family: Arial, sans-serif;
+            color: red;
+            padding: 40px;
+        }
+        nav a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        section {
+            display: none;
+            margin-top: 40px;
+        }
+        section.active {
+            display: block;
+        }
     </style>
   </head>
   <body>
-    <h1> Acme Inc. </h1>
+    <nav>
+      <a href="#" onclick="show('home')">Home</a>
+      <a href="#" onclick="show('about')">About</a>
+    </nav>
+
+    <section id="home" class="active">
+      <h1>Welcome to Acme Inc.</h1>
+      <p>If it explodes, catapults, or backfires spectacularly — we made it.</p>
+      <p>Trusted by Wile E. Coyote since 1949.</p>
+    </section>
+
+    <section id="about">
+      <h1>About Acme Inc.</h1>
+      <p>For over 75 years, Acme Inc. has been the world's leading supplier of innovative products for the most determined customers.</p>
+      <p>From rocket-powered roller skates to portable holes, our catalog has everything you need to catch that roadrunner. Results may vary.</p>
+    </section>
+
+    <script>
+      function show(id) {
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+      }
+    </script>
   </body>
 </html>
+```
