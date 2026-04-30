@@ -23,6 +23,7 @@ networking:
   apiServerPort: 6443
 nodes:
 - role: control-plane
+  image: kindest/node:v1.27.3
   kubeadmConfigPatches:
   - |
     kind: InitConfiguration
@@ -37,14 +38,17 @@ nodes:
     hostPort: 443
     protocol: TCP
 - role: worker
+  image: kindest/node:v1.27.3
   extraMounts:
   - hostPath: /var/run/docker.sock
     containerPath: /var/run/docker.sock
 - role: worker
+  image: kindest/node:v1.27.3
   extraMounts:
   - hostPath: /var/run/docker.sock
     containerPath: /var/run/docker.sock
 - role: worker
+  image: kindest/node:v1.27.3
   extraMounts:
   - hostPath: /var/run/docker.sock
     containerPath: /var/run/docker.sock
